@@ -1,51 +1,170 @@
-﻿MarkItDown Desktop
+MarkItDown Desktop
+==================
 
-A beautifully designed, local-first Desktop application powered by Microsoft's MarkItDown and Google's Gemini 1.5. Convert any file (Office documents, PDFs, Images, Archives, Audio) into clean Markdown with advanced visual OCR capabilities.
+A beautifully designed, local-first desktop application powered by Microsoft MarkItDown and Google Gemini. Convert Office documents, PDFs, images, archives, audio, and more into clean, structured Markdown with optional AI-powered OCR.
 
-FEATURES:
-- Universal File Support: Drag & drop .docx, .pptx, .xlsx, .pdf, .zip, .png, .jpg, and more.
-- Intelligent OCR via Gemini: If your document contains images, diagrams, or charts, the app seamlessly connects to Gemini to aggressively transcribe the text and describe the visual elements.
-- Claude Aesthetics: A gorgeous dark-mode interface styled with Anthropic's minimal design system.
-- Custom AI Instructions: Pass custom instructions (e.g. "Only extract tables and output as CSV") directly to the extraction engine.
-- Memory & Crash Protection: Safely truncates massive zip files from freezing your UI and securely catches all backend parsing exceptions gracefully.
+FEATURES
+--------
+1. Universal File Support
+Convert a wide range of file formats into Markdown, including:
+- Microsoft Word (.docx)
+- PowerPoint (.pptx)
+- Excel (.xlsx)
+- PDF (.pdf)
+- Images (.png, .jpg, .jpeg, .webp)
+- ZIP archives (.zip)
+- Audio files
+- And many more supported by Microsoft MarkItDown
+Simply drag and drop your files to begin.
 
-TECH STACK:
-- Frontend: React, TypeScript, Vite, Tailwind CSS v4
-- Backend: Python (Microsoft markitdown + Google genai SDK)
-- Desktop Wrapper: Electron (with secure context isolation)
+2. AI-Powered OCR (Gemini)
+For scanned documents, screenshots, diagrams, charts, or image-based PDFs, the application can use Google Gemini to:
+- Extract text accurately
+- Describe images and diagrams
+- Preserve document context
+- Produce clean Markdown output
+(Note: A Gemini API key is required only for OCR features.)
 
-GETTING STARTED:
+3. Modern Desktop Experience
+- Clean and elegant dark interface
+- Minimal design inspired by Claude
+- Fast and responsive user experience
+- Drag-and-drop workflow
 
+4. Custom AI Instructions
+Provide custom prompts such as:
+- Extract only tables
+- Convert output to CSV
+- Ignore images
+- Summarize the document
+- Describe diagrams in detail
+Your instructions are passed directly to the AI extraction engine.
+
+5. Safe & Reliable
+- Handles parser exceptions gracefully
+- Prevents crashes caused by very large files
+- Protects the UI from freezing during processing
+- Local-first architecture
+
+TECH STACK
+----------
+- Frontend: React 19
+- Language: TypeScript
+- Build Tool: Vite
+- Styling: Tailwind CSS v4
+- Desktop: Electron
+- Backend: Python
+- Conversion Engine: Microsoft MarkItDown
+- OCR: Google Gemini
+
+PROJECT STRUCTURE
+-----------------
+MarkItDown-Desktop/
+|-- electron/
+|-- python/
+|-- src/
+|-- public/
+|-- package.json
+|-- vite.config.ts
+|-- README.txt
+
+GETTING STARTED
+---------------
 Prerequisites:
-1. Node.js (v18 or higher)
-2. Python (v3.10 or higher)
-3. A free Gemini API Key from Google AI Studio (Optional, but required for image OCR).
+Install the following software:
+- Node.js 18+
+- Python 3.10+
+- npm
+- Gemini API Key (Optional, only required for OCR)
 
-Installation:
-1. Clone the repository and install Node dependencies:
-   git clone https://github.com/zihad501501/Markitdown-desktop-local.git
-   cd Markitdown-desktop-local
-   npm install
+INSTALLATION
+------------
+1. Clone the Repository
+git clone https://github.com/zihad501501/Markitdown-desktop-local.git
+cd Markitdown-desktop-local
 
-2. Setup the Python Virtual Environment:
-   cd python
-   python -m venv venv
-   
-   Activate the virtual environment:
-   (Windows): venv\Scripts\activate
-   (Mac/Linux): source venv/bin/activate
-   
-   Install the required Python packages:
-   pip install markitdown google-genai openai
-   cd ..
+Install Node.js dependencies:
+npm install
 
-Running the App:
-You can start the application using the built-in NPM script:
+2. Set Up Python
+Navigate to the Python folder:
+cd python
+
+Create a virtual environment:
+python -m venv venv
+
+Activate the Environment:
+(Windows): venv\Scripts\activate
+(macOS / Linux): source venv/bin/activate
+
+Install Python dependencies:
+pip install markitdown google-genai openai
+
+Return to the project root:
+cd ..
+
+RUNNING THE APPLICATION
+-----------------------
+Start the development server:
 npm run dev
 
-Building for Production:
-To compile the application into a standalone executable (e.g. .exe):
+BUILD FOR PRODUCTION
+--------------------
+Generate a production desktop build:
 npm run build
+The packaged application will be available in the output directory after the build completes.
 
-PRIVACY & SECURITY:
-This app runs locally on your machine. File parsing happens entirely locally via the Python subprocess. Your files are only uploaded to the cloud if they require OCR via the Gemini API, after which they are instantly deleted. Your API keys are saved locally to your browser's localStorage.
+ENVIRONMENT VARIABLES
+---------------------
+If you want to use Gemini OCR, configure your API key inside the application settings.
+
+PRIVACY & SECURITY
+------------------
+Your privacy is a priority.
+- All file conversion happens locally.
+- Files are processed using a local Python subprocess.
+- Documents are never uploaded unless Gemini OCR is enabled.
+- Only files requiring OCR are temporarily sent to Google's API.
+- API keys are stored locally on your machine.
+- No analytics or tracking are included.
+
+SUPPORTED WORKFLOWS
+-------------------
+- Office -> Markdown
+- PDF -> Markdown
+- Image -> Markdown
+- ZIP -> Markdown
+- Audio -> Markdown
+- OCR -> Markdown
+- AI Description -> Markdown
+
+CONTRIBUTING
+------------
+Contributions are welcome!
+1. Fork the repository
+2. Create a feature branch: git checkout -b feature/my-feature
+3. Commit your changes: git commit -m "Add new feature"
+4. Push the branch: git push origin feature/my-feature
+5. Open a Pull Request
+
+SUPPORT
+-------
+If you find this project useful, please consider giving it a Star on GitHub. It helps others discover the project and supports future development.
+
+LICENSE
+-------
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+ACKNOWLEDGEMENTS
+----------------
+This project is built with the following amazing open-source technologies:
+- Microsoft MarkItDown
+- Google Gemini
+- React
+- Electron
+- Vite
+- Tailwind CSS
+- TypeScript
+
+Made with love by Zihad
+Convert Anything -> Markdown
